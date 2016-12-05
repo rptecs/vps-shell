@@ -4,7 +4,7 @@ export PATH
 #===============================================================================================
 #   System Required:  CentOS 6,7, Debian, Ubuntu
 #   Description:  One click Install Shadowsocks(Python)
-#   Author: Teddysun <tadung@gmail.com>
+#   Author: Teddysun < tadung@gmail.com>
 #===============================================================================================
 
 clear

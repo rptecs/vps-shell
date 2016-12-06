@@ -6,6 +6,9 @@
 
 wget https://raw.githubusercontent.com/rptec/vps-shell/master/bench.sh && sh bench.sh
 
+跑分
+wget https://raw.githubusercontent.com/rptec/vps-shell/master/unixbench.sh && sh unixbench.sh
+
 ## Linux安装桌面
 
 给你的linux装个桌面，适用于centos系统

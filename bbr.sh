@@ -1,104 +1,82 @@
 #!/bin/bash
-PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
-export PATH
 
-# Check if user is root
-if [ $(id -u) != "0" ]; then
-    echo "Error: You must be root to run this script, please use root to install BBR"
-    exit
+CentOS_Version=`cat /etc/redhat-release | grep -oE '[0-9]+\.[0-9]+' | cut -d'.' -f1`
+KVersion=4.9.0-rc8
+
+if [ -z ${CentOS_Version} ]
+then
+	CentOS_Version=0
 fi
 
-clear
-echo "+------------------------------------------------------------------------+"
-echo "|                          GooGle TCP BBR                                |"
-echo "+------------------------------------------------------------------------+"
-echo "|        A tool to auto-compile & install BBR on CentOS                  |"
-echo "+------------------------------------------------------------------------+"
-echo "|                 Welcome to  http://github.com/                 |"
-echo "+------------------------------------------------------------------------+"
-
-Get_RHEL_Version()
-{
-    if grep -Eqi "release 5." /etc/redhat-release; then
-        RHEL_Version='5'
-    elif grep -Eqi "release 6." /etc/redhat-release; then
-        RHEL_Version='6'
-    elif grep -Eqi "release 7." /etc/redhat-release; then
-        RHEL_Version='7'
-    fi
-}
-
-Get_RHEL_Version
-if [ $RHEL_Version != "6" ]; then
-    echo "Error: You must be CentOS 6 to run this script, please use CentOS 6 to install BBR"
+if [ ${CentOS_Version} -lt 6 ]
+then
+	echo "Sorry, I can only support CentOS 6/7 yet."
 	exit
 fi
 
-Get_OS_Bit()
-{
-    if [[ `getconf WORD_BIT` = '32' && `getconf LONG_BIT` = '64' ]] ; then
-        OS_Bit='64'
-    else
-        OS_Bit='32'
-    fi
-}
+if [[ `getconf WORD_BIT` = '32' && `getconf LONG_BIT` = '64' ]] ; then
+	BIT_VER=x64
+else
+	BIT_VER=x86
+fi
 
-Install()
-{
-    Get_OS_Bit
-    if uname -r | grep -Eqi "4.9."; then
-	    if lsmod | grep -Eqi "bbr"; then
-		    echo "您已经成功安装BBR"
-		else
-		    if [ ! `cat /etc/sysctl.conf | grep -i -E "net.core.default_qdisc=fq"` ]; then
-		        echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
-		    fi
-		    if [ ! `cat /etc/sysctl.conf | grep -i -E "net.ipv4.tcp_congestion_control=bbr"` ]; then
-		        echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
-		    fi
-		    sysctl -p
-		fi
-	else
-	    if [ ! -f "/boot/grub/grub.conf" ];then
-			echo "不支持当前系统，即将退出程序！"
+if [ ${BIT_VER} != 'x64' ]
+then
+	echo "Sorry, I can only support x64 yet."
+	exit
+fi
+
+echo "Now I will replace the system kernel to ${KVersion}..."
+echo "Start installing"
+
+MODSCRIPT=/usr/share/dracut/modules.d/90kernel-modules/installkernel
+QOCC=`grep blk_init_queue $MODSCRIPT|wc -l`
+if [ $QOCC -eq 1 ]
+then
+	sed -i 's/blk_init_queue/blk_mq_init_queue/' $MODSCRIPT
+fi
+if [ ${CentOS_Version} -eq 7 ]
+then
+	rpm -Uvh --force http://soft.wellphp.com/kernels/x86_64/kernel-ml-${KVersion}.el${CentOS_Version}.centos.x86_64.rpm
+else
+	rpm -Uvh --force http://soft.wellphp.com/kernels/x86_64/kernel-ml-${KVersion}.el${CentOS_Version}.x86_64.rpm
+fi
+if [ $QOCC -eq 1 ]
+then
+	sed -i 's/blk_mq_init_queue/blk_init_queue/' $MODSCRIPT
+fi
+echo "Checking if the installtion is ok"
+KGRUB2=`ls /etc/grub2.cfg|wc -l`
+if [ ${KGRUB2} -eq 1 ]
+then
+	INS_OK=`awk -F\' '$1=="menuentry " {print i++ " : " $2}' /etc/grub2.cfg | grep ${KVersion} | grep -i -v debug | grep -i -v rescue | cut -d' ' -f1`
+	if [ -z ${INS_OK} ]
+	then
+		echo "Sorry, install failed, please contact the author"
+		exit
+	fi
+	yum install -y grub2-tools
+	
+	grub2-set-default ${INS_OK}
+else
+	KGRUB=`ls /boot/grub/grub.conf|wc -l`
+	if [ ${KGRUB} -eq 1 ]
+	then
+		INS_OK=`grep '^title ' /boot/grub/grub.conf | awk -F'title ' '{print i++ " : " $2}' | grep ${KVersion} | grep -i -v debug | grep -i -v rescue | cut -d' ' -f1`
+		if [ -z ${INS_OK} ]
+		then
+			echo "Sorry, install failed, please contact the author"
 			exit
 		fi
-		
-	    echo -n "内核不一致，即将替换内核 [y or n]:  "
-		read code
-		if [ $code = "y" -o $code = "Y" ]; then
-		    if [ $OS_Bit = "64" ]; then
-		        rpm -ivh http://elrepo.org/people/ajb/devel/kernel-ml/el6/x86_64/RPMS/kernel-ml-4.9.0-0.rc8.el6.elrepo.x86_64.rpm --force
-			fi
-			if [ $OS_Bit = "32" ]; then
-		        rpm -ivh http://elrepo.org/people/ajb/devel/kernel-ml/el6/x86_32/RPMS/kernel-ml-4.9.0-0.rc8.el6.elrepo.i686.rpm --force
-			fi
-			
-			kernel_default=`grep '^title ' /boot/grub/grub.conf | awk -F'title ' '{print i++ " : " $2}' | grep "4.9." | grep -v debug | cut -d' ' -f1`
-			sed -i "s/^default.*/default=${kernel_default}/" /boot/grub/grub.conf
-			
-			if [ ! `cat /etc/sysctl.conf | grep -i -E "net.core.default_qdisc=fq"` ]; then
-		        echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
-		    fi
-		    if [ ! `cat /etc/sysctl.conf | grep -i -E "net.ipv4.tcp_congestion_control=bbr"` ]; then
-		        echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
-		    fi
-		    sysctl -p >/dev/null 2>&1
-		
-			rm -f $0
-			echo -n "重启后生效，是否重启？[y]："
-			read is_reboot
-			if [ $is_reboot = "y" -o $is_reboot = "Y" ]; then
-			    reboot
-			else
-			    exit
-			fi
-		else
-		    echo "程序即将退出安装"
-            exit
-		fi
+		sed -i "s/^default.*/default=${INS_OK}/" /boot/grub/grub.conf
 	fi
-}
- 
-Install
-exit
+fi
+
+echo " "
+echo "Installation is completed, now you can reboot the system. "
+echo "You should check BBR after the rebooting using command: "
+echo " "
+echo "     sysctl -a|grep congestion_control"
+
+
+

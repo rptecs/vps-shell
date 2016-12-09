@@ -14,7 +14,7 @@ echo "|                          GooGle TCP BBR                                |
 echo "+------------------------------------------------------------------------+"
 echo "|        A tool to auto-compile & install BBR on CentOS                  |"
 echo "+------------------------------------------------------------------------+"
-echo "|                 Welcome to  http://github.com/52fancy                  |"
+echo "|                 Welcome to  http://github.com/                 |"
 echo "+------------------------------------------------------------------------+"
 
 Get_RHEL_Version()

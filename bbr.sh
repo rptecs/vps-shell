@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CentOS_Version=`cat /etc/redhat-release | grep -oE '[0-9]+\.[0-9]+' | cut -d'.' -f1`
-KVersion=4.9.0-rc8
+KVersion=4.9.0-1
 
 if [ -z ${CentOS_Version} ]
 then

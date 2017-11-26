@@ -40,7 +40,7 @@ wget https://raw.githubusercontent.com/rptec/vps-shell/master/serverspeeder.sh &
 一键安装finalspeed功能，支持全系架构
 wget https://raw.githubusercontent.com/rptec/vps-shell/master/finalspeed.sh && sh finalspeed.sh
 
-## BBR  一键包（centos6 ）
+## BBR  魔改版一键包
 wget https://raw.githubusercontent.com/rptec/vps-shell/master/bbr.sh && sh bbr.sh
 
 

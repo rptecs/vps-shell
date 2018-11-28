@@ -1,6 +1,10 @@
 # vps-shell
 收集一些自用的shell脚本，适用于懒人使用。
 
+新增一键tcp加速 包括锐速及bbr暴力版等
+wget https://raw.githubusercontent.com/rptec/vps-shell/master/tcp.sh && sh tcp.sh
+
+
 ## VPS测试
 测试VPS基础信息，以及下载速度
 

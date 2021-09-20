@@ -1,10 +1,12 @@
 # vps-shell
 收集一些自用的shell脚本，适用于懒人使用。
 
-## 新增流媒体可用性检测脚本 包括（netflix等），服务器测速脚本
+2021.9.20 新增流媒体可用性检测脚本 包括（netflix等），服务器测速脚本
 
 ## 流媒体检测脚本
 wget https://raw.githubusercontent.com/rptec/vps-shell/master/check.sh && sh check.sh
+
+
 
 ## 服务器三网下载（上传）速度脚本
 wget https://raw.githubusercontent.com/rptec/vps-shell/master/superspeed.sh && sh superspeed.sh

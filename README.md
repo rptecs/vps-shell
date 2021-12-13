@@ -52,12 +52,12 @@ sudo reboot
 ### 跑分
 `wget https://raw.githubusercontent.com/rptec/vps-shell/master/unixbench.sh && sh unixbench.sh`
 ## 回程网络
-### 第一个
+### testrace
 `wget https://raw.githubusercontent.com/nanqinlang-script/testrace/master/testrace.sh
 bash testrace.sh`
-### 第二个
+### besttrace
 `wget -qO- git.io/besttrace | bash`
-### 第三个
+### test
 `curl http://tutu.ovh/bash/returnroute/test.sh | bash`
 
 

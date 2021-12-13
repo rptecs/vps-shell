@@ -1,7 +1,10 @@
 # vps-shell
 收集一些自用的shell脚本，适用于懒人使用。
 
-2021.9.20 新增流媒体可用性检测脚本 包括（netflix等），服务器测速脚本
+## 一键网络重装
+bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 10 -v 64 -p "自定义root密码" -port "22"
+
+
 
 ## 流媒体检测脚本
 wget https://raw.githubusercontent.com/rptec/vps-shell/master/check.sh && sh check.sh

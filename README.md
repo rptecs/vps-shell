@@ -8,9 +8,9 @@ Ubuntu: 18.04, 20.04;
 CentOS: 6,7;
 以下平台已通过测试:
 Oracle(包括ARM)、Do、Azure
-
+`
 bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 10 -v 64 -p "自定义root密码" -port "22"
-
+`
 
 
 ## 流媒体检测脚本

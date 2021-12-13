@@ -1,7 +1,9 @@
 # vps-shell
 收集一些自用的shell脚本，适用于懒人使用。
-
 ## 一键网络重装
+### DD Debian
+` bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 10 -v 64 -p "自定义root密码" -port "22" `
+
 以下系统已通过测试:
 Debian: 9, 10, 11;
 Ubuntu: 18.04, 20.04;
@@ -9,7 +11,27 @@ CentOS: 6,7;
 以下平台已通过测试:
 Oracle(包括ARM)、Do、Azure
 
-` bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 10 -v 64 -p "自定义root密码" -port "22" `
+### DD windows 7 (不支持甲骨文arm)
+` 
+wget --no-check-certificate -qO InstallNET.sh 'https://moeclub.org/attachment/LinuxShell/InstallNET.sh' && bash InstallNET.sh -dd 'http://d.nat.ee/win/lite/win7-ent-sp1-x64-cn/win7-ent-sp1-x64-cn.vhd.gz'`
+
+
+### 开机改密并开启root权限
+适用于GCP, AZURE,甲骨文等
+```
+#!/bin/bash
+echo root:passwd |sudo chpasswd root
+sudo sed -i 's/^#\?PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config;
+sudo sed -i 's/^#\?PasswordAuthentication.*/PasswordAuthentication yes/g' /etc/ssh/sshd_config;
+sudo reboot
+```
+
+## BT面板开心版
+
+### 专业版
+`wget -O install.sh http://download.moetas.com/install/install-ubuntu_6.0.sh && bash install.sh`
+### 企业版
+`wget -O install.sh http://download.moetas.com/ltd/install/install-ubuntu_6.0.sh && bash install.sh`
 
 
 ## 流媒体检测脚本
@@ -48,8 +70,16 @@ wget https://raw.githubusercontent.com/rptec/vps-shell/master/shadowsocks.sh && 
 ## SSR 一键包
 wget https://raw.githubusercontent.com/rptec/vps-shell/master/shadowsocksR.sh && sh shadowsocksR.sh
 
+# 加速
 
-
+## 一键开启BBR
+```
+echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+sysctl -p
+sysctl net.ipv4.tcp_available_congestion_control
+lsmod | grep bbr
+```
 ## l2tp 一键包
 一键安装l2tp的vpn服务器端，输入3个指令即可
 wget https://raw.githubusercontent.com/rptec/vps-shell/master/l2tp.sh && sh l2tp.sh

@@ -12,19 +12,14 @@
 
 `wget -O AutoReinstall.sh https://git.io/AutoReinstall.sh && bash AutoReinstall.sh`
 
+Password: Pwd@Linux
+
 
 ### DD windows 7 (不支持甲骨文arm)
 ` 
 wget --no-check-certificate -qO InstallNET.sh 'https://moeclub.org/attachment/LinuxShell/InstallNET.sh' && bash InstallNET.sh -dd 'http://d.nat.ee/win/lite/win7-ent-sp1-x64-cn/win7-ent-sp1-x64-cn.vhd.gz'`
-### 开机改密并开启root权限
-适用于GCP, AZURE,甲骨文等
-```
-#!/bin/bash
-echo root:passwd |sudo chpasswd root
-sudo sed -i 's/^#\?PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config;
-sudo sed -i 's/^#\?PasswordAuthentication.*/PasswordAuthentication yes/g' /etc/ssh/sshd_config;
-sudo reboot
-```
+
+
 
 ## BT面板开心版
 ### 专业版

@@ -4,12 +4,9 @@
 ### DD Debian
 ` bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 10 -v 64 -p "自定义root密码" -port "22" `
 
-以下系统已通过测试:
-Debian: 9, 10, 11;
-Ubuntu: 18.04, 20.04;
-CentOS: 6,7;
-以下平台已通过测试:
-Oracle(包括ARM)、Do、Azure
+参数说明 -d 10为 全新安装Debian10  -c 8为全新安装centos 8，其他依次类推
+以下系统已通过测试:Debian: 9, 10, 11;Ubuntu: 18.04, 20.04;CentOS: 6,7;
+以下平台已通过测试:Oracle(包括ARM)、Do、Azure
 
 或者
 

@@ -11,6 +11,11 @@ CentOS: 6,7;
 以下平台已通过测试:
 Oracle(包括ARM)、Do、Azure
 
+或者
+
+`wget -O AutoReinstall.sh https://git.io/AutoReinstall.sh && bash AutoReinstall.sh`
+
+
 ### DD windows 7 (不支持甲骨文arm)
 ` 
 wget --no-check-certificate -qO InstallNET.sh 'https://moeclub.org/attachment/LinuxShell/InstallNET.sh' && bash InstallNET.sh -dd 'http://d.nat.ee/win/lite/win7-ent-sp1-x64-cn/win7-ent-sp1-x64-cn.vhd.gz'`
@@ -72,6 +77,22 @@ bash testrace.sh`
 
 `wget https://raw.githubusercontent.com/rptec/vps-shell/master/xwindow.sh && sh xwindow.sh`
 
+## Linux docker-firefox
+```
+docker pull lscr.io/linuxserver/firefox
+
+docker run -d \
+  --name=firefox \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Asia/Singapore \
+  -p 3000:3000 \
+  -v /path/to/config:/config \
+  --shm-size="5gb" \
+  --restart unless-stopped \
+  lscr.io/linuxserver/firefox
+
+```
 
 ## 加速
 ### 一键开启BBR

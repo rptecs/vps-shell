@@ -70,6 +70,10 @@ bash testrace.sh`
 `wget https://raw.githubusercontent.com/rptec/vps-shell/master/xwindow.sh && sh xwindow.sh`
 
 ## Linux docker-firefox
+apt update -y ; apt upgrade -y
+dpkg-reconfigure locales
+
+
 ```
 docker pull lscr.io/linuxserver/firefox
 

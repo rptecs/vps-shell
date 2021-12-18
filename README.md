@@ -80,7 +80,7 @@ docker run -d \
   -e TZ=Asia/Singapore \
   -p 3000:3000 \
   -v /path/to/config:/config \
-  --shm-size="5gb" \
+  --shm-size="2gb" \
   --restart unless-stopped \
   lscr.io/linuxserver/firefox
 

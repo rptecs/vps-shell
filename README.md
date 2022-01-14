@@ -49,13 +49,8 @@ wget --no-check-certificate -qO InstallNET.sh 'https://moeclub.org/attachment/Li
 ### 跑分
 `wget https://raw.githubusercontent.com/rptec/vps-shell/master/unixbench.sh && sh unixbench.sh`
 ## 回程网络
-### testrace
-`wget https://raw.githubusercontent.com/nanqinlang-script/testrace/master/testrace.sh
-bash testrace.sh`
-### besttrace
-`wget -qO- git.io/besttrace | bash`
-### test
-`curl http://tutu.ovh/bash/returnroute/test.sh | bash`
+### 三网路由
+`curl https://raw.githubusercontent.com/zhucaidan/mtr_trace/main/mtr_trace.sh|bash`
 
 
 ## Linux安装桌面

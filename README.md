@@ -34,6 +34,9 @@ wget --no-check-certificate -qO InstallNET.sh 'https://moeclub.org/attachment/Li
 ### 简化版
 `bash <(curl -sSL "https://github.com/CoiaPrant/MediaUnlock_Test/raw/main/check.sh")`
 
+### 添加warp并解锁netflix 等流媒体
+`bash <(curl -sSL https://raw.githubusercontent.com/fscarmen/warp_unlock/main/unlock.sh)`
+
 ## VPS跑分测试
 ### superbench
 `wget -qO- git.io/superbench.sh | bash`

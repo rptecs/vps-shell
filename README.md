@@ -117,3 +117,7 @@ lsmod | grep bbr
 ## 一键docker
 `curl -sSL https://get.docker.com/ | sh`
 
+## 一键为VPS添加中文支持
+
+`wget -N --no-check-certificate https://raw.githubusercontent.com/FunctionClub/LocaleCN/master/LocaleCN.sh && bash LocaleCN.sh`
+

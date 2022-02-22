@@ -123,7 +123,7 @@ lsmod | grep bbr
 
 ## 一键为VPS添加Swap 虚拟内存
 
-`wget https://raw.githubusercontent.com/rptec/vps-shell/master/swap.sh && sh finalspeed.sh`
+`wget https://raw.githubusercontent.com/rptec/vps-shell/master/swap.sh && sh swap.sh`
 
 
 

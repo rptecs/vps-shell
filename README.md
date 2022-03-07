@@ -125,5 +125,6 @@ lsmod | grep bbr
 
 `wget https://raw.githubusercontent.com/rptec/vps-shell/master/swap.sh && sh swap.sh`
 
+## 一键Warp 支持刷netflix解锁ip
 
-
+`wget -N https://raw.githubusercontent.com/kkkyg/CFwarp/main/CFwarp.sh && bash CFwarp.sh`

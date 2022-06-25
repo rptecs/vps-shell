@@ -46,7 +46,7 @@ wget --no-check-certificate -qO InstallNET.sh 'https://moeclub.org/attachment/Li
 `curl -sL yabs.sh | bash`
 
 ### 三网测速
-`bash <(curl -Lso- http://yun.789888.xyz/speedtest.sh)`
+`bash <(curl -Lso- https://git.io/superspeed.sh)`
 ### 测试VPS基础信息，以及下载速度
 `wget https://raw.githubusercontent.com/rptec/vps-shell/master/bench.sh && sh bench.sh`
 ### 跑分

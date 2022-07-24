@@ -128,3 +128,7 @@ lsmod | grep bbr
 ## 一键Warp 支持刷netflix解锁ip
 
 `wget -N https://raw.githubusercontent.com/kkkyg/CFwarp/main/CFwarp.sh && bash CFwarp.sh`
+
+## 一键Trojan go +ws
+
+bash <(curl -sL https://raw.githubusercontent.com/rptecs/vps-shell/master/trojangows.sh )

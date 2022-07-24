@@ -131,4 +131,4 @@ lsmod | grep bbr
 
 ## 一键Trojan go +ws
 
-bash <(curl -sL https://raw.githubusercontent.com/rptecs/vps-shell/master/trojangows.sh )
+`bash <(curl -sL https://raw.githubusercontent.com/rptecs/vps-shell/master/trojangows.sh )`

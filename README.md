@@ -19,8 +19,9 @@ Password: Pwd@Linux
 ` 
 wget --no-check-certificate -qO InstallNET.sh 'https://moeclub.org/attachment/LinuxShell/InstallNET.sh' && bash InstallNET.sh -dd 'http://d.nat.ee/win/lite/win7-ent-sp1-x64-cn/win7-ent-sp1-x64-cn.vhd.gz'`
 
-
-
+` 
+apt update -y && apt install -y curl && apt install -y socat && apt install wget -y
+` 
 ## BT面板开心版
 ### 专业版
 `wget -O install.sh http://download.moetas.com/install/install-ubuntu_6.0.sh && bash install.sh`

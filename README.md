@@ -17,10 +17,8 @@ Password: Pwd@Linux
 
 ### DD windows 7 (不支持甲骨文arm)
 ` 
-wget --no-check-certificate -qO InstallNET.sh 'https://moeclub.org/attachment/LinuxShell/InstallNET.sh' && bash InstallNET.sh -dd 'http://d.nat.ee/win/lite/win7-ent-sp1-x64-cn/win7-ent-sp1-x64-cn.vhd.gz'`
+wget -N --no-check-certificate https://raw.githubusercontent.com/veip007/dd/master/dd-gd.sh && chmod +x dd-gd.sh && ./dd-gd.sh
 
-` 
-apt update -y && apt install -y curl && apt install -y socat && apt install wget -y
 ` 
 ## BT面板开心版
 ### 专业版

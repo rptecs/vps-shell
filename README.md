@@ -16,10 +16,7 @@ Password: Pwd@Linux
 
 
 ### DD windows 7 (不支持甲骨文arm)
-` 
-wget -N --no-check-certificate https://raw.githubusercontent.com/veip007/dd/master/dd-gd.sh && chmod +x dd-gd.sh && ./dd-gd.sh
-
-` 
+`wget -N --no-check-certificate https://raw.githubusercontent.com/veip007/dd/master/dd-gd.sh && chmod +x dd-gd.sh && ./dd-gd.sh` 
 ## BT面板开心版
 ### 专业版
 `wget -O install.sh http://download.moetas.com/install/install-ubuntu_6.0.sh && bash install.sh`

@@ -2,7 +2,7 @@
 收集一些自用的shell脚本，适用于懒人使用。
 
 ## 一键优化 
-` curl -o dns.sh https://raw.githubusercontent.com/rptec/vps-shell/master/dns.sh && chmod 777 dns.sh && ./dns.sh `
+` curl -o dns.sh https://raw.githubusercontent.com/rptecs/vps-shell/master/dns.sh && chmod 777 dns.sh && ./dns.sh `
 ## 一键网络重装
 ### DD Debian
 ` bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 10 -v 64 -p "自定义root密码" -port "22" `

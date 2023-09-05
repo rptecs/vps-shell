@@ -1,5 +1,7 @@
 # vps-shell
 收集一些自用的shell脚本，适用于懒人使用。
+https://tu.21t.co
+https://cdn.jsdelivr.net/gh/rptecs/vps-shell/
 
 ## 一键优化 
 ` curl -o dns.sh https://raw.githubusercontent.com/rptecs/vps-shell/master/dns.sh && chmod 777 dns.sh && ./dns.sh `

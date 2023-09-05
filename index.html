@@ -23,13 +23,13 @@
       coverpage: true,
       plugins: [
         EditOnGithubPlugin.create(
-          'https://github.com/li10217/LearningNotes/tree/master/docs/'
+          'https://github.com'
         ),
         function (hook,vm) {
           var footer = [
             '<hr/>',
             '<footer>',
-            '<span><a href="https://github.com/li10217">Sin</a> &copy;2017.</span>',
+            '<span><a href="https://github.com/">Sin</a> &copy;2017.</span>',
             '</footer>'
           ].join('')
           hook.afterEach(function (html) {

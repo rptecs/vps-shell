@@ -7,7 +7,7 @@ https://cdn.jsdelivr.net/gh/rptecs/vps-shell/
 ` curl -o dns.sh https://raw.githubusercontent.com/rptecs/vps-shell/master/dns.sh && chmod 777 dns.sh && ./dns.sh `
 ## 一键网络重装
 ### DD Debian
-` bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 10 -v 64 -p "自定义root密码" -port "22" `
+` bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 10 -v 64 -p "你的密码" -port "22" `
 
 参数说明 -d 10为 全新安装Debian10  -c 6为全新安装centos 6，其他依次类推
 以下系统已通过测试:Debian: 9, 10, 11;Ubuntu: 18.04, 20.04;CentOS: 6,7;
@@ -49,9 +49,9 @@ Password: Pwd@Linux
 ### 三网测速
 `bash <(curl -Lso- https://git.io/superspeed.sh)`
 ### 测试VPS基础信息，以及下载速度
-`wget https://raw.githubusercontent.com/rptec/vps-shell/master/bench.sh && sh bench.sh`
+`wget https://raw.githubusercontent.com/rptecs/vps-shell/master/bench.sh && sh bench.sh`
 ### 跑分
-`wget https://raw.githubusercontent.com/rptec/vps-shell/master/unixbench.sh && sh unixbench.sh`
+`wget https://raw.githubusercontent.com/rptecs/vps-shell/master/unixbench.sh && sh unixbench.sh`
 ## 回程网络
 ### 三网路由
 `curl https://raw.githubusercontent.com/zhucaidan/mtr_trace/main/mtr_trace.sh|bash`
@@ -66,7 +66,7 @@ Password: Pwd@Linux
 ### xwindow
 给你的linux装个桌面，适用于centos系统
 
-`wget https://raw.githubusercontent.com/rptec/vps-shell/master/xwindow.sh && sh xwindow.sh`
+`wget https://raw.githubusercontent.com/rptecs/vps-shell/master/xwindow.sh && sh xwindow.sh`
 
 ## Linux docker-firefox
 apt update -y ; apt upgrade -y
@@ -101,19 +101,19 @@ lsmod | grep bbr
 ### l2tp 一键包
 一键安装l2tp的vpn服务器端，输入3个指令即可
 
-`wget https://raw.githubusercontent.com/rptec/vps-shell/master/l2tp.sh && sh l2tp.sh`
+`wget https://raw.githubusercontent.com/rptecs/vps-shell/master/l2tp.sh && sh l2tp.sh`
 ### 锐速一键包
 一键安装锐速破解全功能版，不支持openvz架构
 
-`wget https://raw.githubusercontent.com/rptec/vps-shell/master/serverspeeder.sh && sh serverspeeder.sh`
+`wget https://raw.githubusercontent.com/rptecs/vps-shell/master/serverspeeder.sh && sh serverspeeder.sh`
 ### finalspeed 一键包
 一键安装finalspeed功能，支持全系架构
 
-`wget https://raw.githubusercontent.com/rptec/vps-shell/master/finalspeed.sh && sh finalspeed.sh`
+`wget https://raw.githubusercontent.com/rptecs/vps-shell/master/finalspeed.sh && sh finalspeed.sh`
 ### BBR  魔改版一键包
-`wget https://raw.githubusercontent.com/rptec/vps-shell/master/bbr.sh && sh bbr.sh`
+`wget https://raw.githubusercontent.com/rptecs/vps-shell/master/bbr.sh && sh bbr.sh`
 ### 一键tcp加速 包括锐速及bbr暴力版等
-`wget https://raw.githubusercontent.com/rptec/vps-shell/master/tcp.sh && sh tcp.sh`
+`wget https://raw.githubusercontent.com/rptecs/vps-shell/master/tcp.sh && sh tcp.sh`
 
 ## 一键docker
 `curl -sSL https://get.docker.com/ | sh`
@@ -124,7 +124,7 @@ lsmod | grep bbr
 
 ## 一键为VPS添加Swap 虚拟内存
 
-`wget https://raw.githubusercontent.com/rptec/vps-shell/master/swap.sh && sh swap.sh`
+`wget https://raw.githubusercontent.com/rptecs/vps-shell/master/swap.sh && sh swap.sh`
 
 ## 一键Warp 支持刷netflix解锁ip
 

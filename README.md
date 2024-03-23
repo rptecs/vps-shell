@@ -7,10 +7,10 @@ https://cdn.jsdelivr.net/gh/rptecs/vps-shell/
 ` curl -o dns.sh https://raw.githubusercontent.com/rptecs/vps-shell/master/dns.sh && chmod 777 dns.sh && ./dns.sh `
 ## 一键网络重装
 ### DD Debian
-` bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 10 -v 64 -p "你的密码" -port "22" `
+` bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 12 -v 64 -p "passwd" -port "22" `
 
-参数说明 -d 10为 全新安装Debian10  -c 6为全新安装centos 6，其他依次类推
-以下系统已通过测试:Debian: 9, 10, 11;Ubuntu: 18.04, 20.04;CentOS: 6,7;
+参数说明 -d 10为 全新安装Debian10  -c 6为全新安装centos 6，其他依次类推。其中 passwd请替换为你自己的密码
+以下系统已通过测试:Debian: 9, 10, 11，12;Ubuntu: 18.04, 20.04，22.04;CentOS: 6,7，8;
 以下平台已通过测试:Oracle(包括ARM)、Do、Azure
 
 或者

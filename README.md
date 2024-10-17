@@ -133,3 +133,6 @@ lsmod | grep bbr
 ## 一键Trojan go +ws
 
 `bash <(curl -sL https://raw.githubusercontent.com/rptecs/vps-shell/master/trojangows.sh )`
+
+## 一键换国内源
+`bash <(curl -sSL https://linuxmirrors.cn/main.sh)`
